@@ -1,0 +1,289 @@
+ <!doctype html>
+<html lang=<"en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Employment & Skill Hub</title>
+  <style>
+    /* ---------- Base Colors (Light Mode) ---------- */
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #111;
+      --accent: #2563eb;
+      --muted: #6b7280;
+      --radius: 12px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    }
+
+    /* ---------- Dark Mode Colors ---------- */
+    body.dark {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --accent: #3b82f6;
+      --muted: #94a3b8;
+    }
+
+    /* ---------- Layout & Basics ---------- */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    a { color: var(--accent); text-decoration: none; }
+
+    /* ---------- Header ---------- */
+    header {
+    
+      display: flex; align-items: center; justify-content: space-between; padding: 12px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 22px; }
+    .logo {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: linear-gradient(135deg, #60a5fa,#2563eb);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700;
+    }
+    nav { display: flex; gap: 18px; align-items: center; }
+    .btn, .ghost {
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn {
+      background: var(--accent); color: #fff; border: none;
+    }
+    .btn:hover { background: #1e40af; }
+    .btn.small { padding: 6px 10px; font-size: 13px; }
+    .ghost {
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.1);
+      color: var(--text);
+    }
+    .ghost:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      display: grid; grid-template-columns: 1fr 420px; gap: 28px; align-items: center; padding: 36px 0;
+      
+    }
+    .hero h1 { font-size: 32px; margin: 0 0 10px; }
+    .hero p { color: var(--muted); margin: 0 0 18px; }
+    .features { display: flex; gap: 10px; }
+    .hero img { width: 100%; border-radius: var(--radius); margin-bottom:12px; }
+
+    /* ---------- Cards & Grid ---------- */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(20,20,40,0.04);
+      transition: background 0.3s;
+    }
+    .grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 16px; margin-top: 22px;
+    }
+    /* Updated grid for courses to be 4 columns on large screens */
+    #courses .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .item h4 { margin: 0 0 8px; }
+    .item p { margin: 0; color: var(--muted); font-size: 14px; }
+    /* IMPORTANT: The images in the cards need a specific height/style */
+    .item img { 
+        width: 100%; /* Make thumbnail fill the card width */
+        height: auto;
+        border-radius: 6px;
+        margin-bottom:8px; 
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 36px; padding: 18px 0;
+      color: var(--muted); font-size: 14px;
+      text-align: center;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1100px) {
+        /* Adjust course grid for medium screens */
+        #courses .grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      nav { display: none; }
+      .grid, #courses .grid { grid-template-columns: 1fr; }
+      .container { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">L</div>
+        <div>
+          <div style="font-weight:700">LocalSkill</div>
+          <div style="font-size:12px;color:var(--muted)">Jobs • Skills • Community</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#jobs">Jobs</a>
+        <a href="#courses">Courses</a>
+        <a href="#community">Community</a>
+        <button id="theme-toggle" class="ghost">🌙 Dark</button>
+      </nav>
+    </header>
+     <img src="WhatsApp Image 2025-10-13 at 08.12.08.jpeg" alt="Image"
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Empowering Local Talent</h1>
+          <p>Find local jobs, upgrade your skills, and connect with your community — all in one place.</p>
+          <div class="features">
+            <a class="btn" href="#jobs">Find Jobs</a>
+            <a class="ghost" href="#courses">Explore Courses</a>
+          </div>
+        </div>
+        <aside class="card">
+          <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Hero">
+          <h3>Quick Info</h3>
+          <p>Join 10,000+ users already growing their careers through LocalSkill. It’s free and simple.</p>
+        </aside>
+      </section>
+
+      <section id="jobs">
+        <h2>Local Job Openings</h2>
+        <div class="grid">
+          <div class="card item">
+            <img src="WhatsApp Image 2025-10-13 at 07.47.46.jpeg" alt="Image"
+            <h4>Web Developer</h4>
+            <p>Company: BrightTech</p>
+            <p>Location: Lucknow</p>
+            <button class="btn small">Apply Now</button>
+          </div>
+          <div class="card item">
+            <img src="WhatsApp Image 2025-10-13 at 07.47.46 (1).jpeg" alt="Image"
+            <h4>Graphic Designer</h4>
+            <p>Company: DesignHub</p>
+            <p>Location: Delhi</p>
+            <button class="btn small">Apply Now</button>
+          </div>
+          <div class="card item">
+            <img src="WhatsApp Image 2025-10-13 at 08.23.34 (1).jpeg" alt="Data Entry">
+            <h4>Data Entry Assistant</h4>
+            <p>Company: LocalGov</p>
+            <p>Location: Jaipur</p>
+            <button class="btn small">Apply Now</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="courses">
+        <h2>Free Skill Courses</h2>
+        <div class="grid">
+          <div class="card item">
+            <img src="WhatsApp Image 2025-10-13 at 08.23.33 (1).jpeg" alt="Image"
+            <h4>Digital Marketing Basics</h4>
+            <p>Duration: 2 Weeks</p>
+            <a href="#" class="btn small">Start Course</a>
+          </div>
+          <div class="card item">
+            <img src="WhatsApp Image 2025-10-13 at 08.30.31.jpeg" alt="Image"
+            <h4>Basic Excel & Data Handling</h4>
+            <p>Duration: 1 Week</p>
+            <a href="#" class="btn small">Start Course</a>
+          </div>
+          <div class="card item">
+            <img src="WhatsApp Image 2025-10-13 at 08.12.09.jpeg" alt="Image"
+            <h4>Communication Skills</h4>
+            <p>Duration: 10 Days</p>
+            <a href="#" class="btn small">Start Course</a>
+          </div>
+          <div class="card item">
+            <img src="WhatsApp Image 2025-10-13 at 08.23.34 (1).jpeg" alt="Project Management Thumbnail">
+            <h4>Project Management 101</h4>
+            <p>Duration: 3 Weeks</p>
+            <a href="#" class="btn small">Start Course</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="community">
+        <h2> jpin our Community & Networking</h2>
+        <div class="card">
+          <p>Join our discussion forum to share job leads, ask career questions, and connect with other professionals in your area.</p>
+          <a href="https://chat.whatsapp.com/BfPzGMZ46UMKwLHeWxX1nA"
+          target="_blank">
+          <button class="btn">Join Community</button>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © LocalSkill — Empowering Local Jobs & Skills
+    </footer>
+  </div>
+
+  <script>
+    // 🌗 Dark Mode Toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const darkMode = document.body.classList.contains('dark');
+      toggleBtn.textContent = darkMode ? '☀️ Light' : '🌙 Dark';
+    });
+    // Chatbot Logic
+    const chatbotHeader = document.getElementById('chatbot-header');
+    const chatbotBody = document.getElementById('chatbot-body');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotInput = document.getElementById('chatbot-input');
+
+    chatbotHeader.addEventListener('click', () => {
+      chatbotBody.style.display = chatbotBody.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    chatbotInput.addEventListener('keypress', function(e) {
+      if(e.key === 'Enter' && chatbotInput.value.trim() !== '') {
+        const userText = chatbotInput.value;
+        appendMessage(userText, 'user');
+        chatbotInput.value = '';
+        setTimeout(() => {
+          const aiResponse = generateResponse(userText);
+          appendMessage(aiResponse, 'ai');
+        }, 500);
+      }
+    });
+
+    function appendMessage(text, sender) {
+      const div = document.createElement('div');
+      div.classList.add('chatbot-msg', sender === 'user' ? 'chatbot-user' : 'chatbot-ai');
+      div.textContent = text;
+      chatbotMessages.appendChild(div);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    </script>
+    
+    </body>
+     </html>
